@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: # {datasource.username}
+    password: # {datasource.password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath*:database/initDatabase.sql
+server:
+  address: 0.0.0.0
+  port: 80
+yclients:
+  company-id: # {yclients.company-id}
+  bearer-authentication: # {yclients.bearer-authentication}
+  user-token: # {yclients.user-token}
+  content-type-header: application/json
+  accept-header: application/vnd.yclients.v2+json
+  filter:
+    is-enabled: true
+    activity-id: # {filter.activity-id}
+    activity-title: # {filter.activity-title}
